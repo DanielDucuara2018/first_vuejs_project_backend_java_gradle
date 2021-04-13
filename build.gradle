@@ -1,0 +1,49 @@
+plugins {
+	id 'org.springframework.boot' version '2.4.4'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+	id 'maven-publish'	
+	// id "io.github.gradle-nexus.publish-plugin" version "«version»"
+}
+
+group = 'com.danob22.app.ws'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	runtimeOnly 'com.h2database:h2'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+test {
+	useJUnitPlatform()
+}
+
+/*publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+        }
+    }
+    repositories {
+        maven {
+            credentials {
+                username "admin"
+                password "daniel1620111820"
+            }
+
+            if(project.version.endsWith('-SNAPSHOT')) {
+                url "http://127.0.0.1:8081/repository/maven-snapshots/"
+            } else {
+                url "http://127.0.0.1:8081/repository/maven-release/"
+            }
+        }
+    }
+}*/
